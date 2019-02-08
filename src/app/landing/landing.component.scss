@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    .circle {
+        transition: 1s ease;
+        border: 1.8px solid white;
+        width: 12em;
+        height: 12em;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        background-color: black;
+        cursor: pointer;
+        flex-shrink: 1;
+    }
+    
+}
+.container :hover {
+    border-color: rgb(106, 187, 253);
+    transform: scale(1.03);
+    fa-icon {
+        color: rgb(53, 141, 255);
+        transform: scale(1);
+    }
+}
+
+fa-icon {
+    transition: 1s ease;
+    color:white; 
+}
