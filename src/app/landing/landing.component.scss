@@ -8,12 +8,13 @@
     left:0;
     right:0;
     bottom:0;
+    flex-direction: column;
     .circle {
         transition: 1s ease;
         border: 1.8px solid white;
         width: 12em;
         height: 12em;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 100%;
@@ -35,4 +36,16 @@
 fa-icon {
     transition: 1s ease;
     color:white; 
+}
+
+.intro {
+    font-size: 4em;
+    position: absolute;
+    color: white;
+    left: 36%;
+    margin-left: -2em;
+    top: 62%;
+    font-family: azonix;
+    letter-spacing: 0.1em;
+    text-shadow: 0.12em 0.12em black;
 }

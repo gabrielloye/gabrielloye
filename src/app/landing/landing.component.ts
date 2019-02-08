@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, transition, state, animate, style, AnimationEvent } from '@angular/animations';
+import { powerAnimation } from '../animations/landinganimations';
+import { trigger, transition, style, animate } from '@angular/animations';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
-  animations: [
-    trigger('switchOn', [
-      state('true', style({
-        transform: 'translateY(-20%)',
-        borderColor: 'red',
-        color: 'red'
-      })),
-      state('false', style({
-        transform: 'translateY(+20%)',
-        borderColor: '*'
-      })),
-      transition('false<=>true', animate(500))
+  animations: powerAnimation.concat([
+    trigger('introLine', [
+      transition(':enter', [
+        style({opacity:0}),
+        animate('1500ms', style({opacity:1}))
+      ])
     ])
-  ]
+  ])
 })
 export class LandingComponent implements OnInit {
 

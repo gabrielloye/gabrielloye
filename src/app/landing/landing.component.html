@@ -1,5 +1,10 @@
-<div class="container">
-  <div class="circle" [@switchOn]="isOn ? true : false" (click)=powerOn()>
-    <fa-icon icon="power-off" size="8x"></fa-icon>
+<div>
+  <div class="container">
+    <div class="circle" [@switchOn]="isOn ? true : false" (click)=powerOn()>
+      <fa-icon icon="power-off" [@childSwitch]="isOn ? true : false" size="8x"></fa-icon>
+    </div>
+  </div>
+  <div *ngIf="this.isOn" @introLine>
+    <h1 class="intro">Hello, I'm Gabriel</h1>
   </div>
 </div>
