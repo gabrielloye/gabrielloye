@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { powerAnimation } from '../animations/landinganimations';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { powerAnimation, textAnimation } from '../animations/landinganimations';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
-  animations: powerAnimation.concat([
-    trigger('introLine', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('1500ms', style({opacity:1}))
-      ])
-    ])
-  ])
+  animations: [
+    powerAnimation(),
+    textAnimation(),
+  ]
 })
 export class LandingComponent implements OnInit {
 
