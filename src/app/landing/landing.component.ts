@@ -5,10 +5,9 @@ import { powerAnimation, textAnimation } from '../animations/landinganimations';
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
-  animations: [
-    powerAnimation(),
+  animations: powerAnimation().concat([
     textAnimation(),
-  ]
+  ])
 })
 export class LandingComponent implements OnInit {
 

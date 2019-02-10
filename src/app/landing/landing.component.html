@@ -4,7 +4,7 @@
   <div class="container" [@powerOn]="isOn ? 'true' : 'false'">
     <div class="button-container" (click)=powerOn()>
       <a class="button" >
-        <span><fa-icon icon="power-off" size="5x"></fa-icon></span>
+        <span><fa-icon [@childAnimation]="isOn ? 'true' : 'false'" icon="power-off" class='power-button' size="5x"></fa-icon></span>
       </a>
     </div>
   </div>

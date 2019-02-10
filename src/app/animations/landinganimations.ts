@@ -1,17 +1,35 @@
-import { keyframes, trigger, transition, state, animate, style, group, query, animateChild } from '@angular/animations';
+import { trigger, transition, state, animate, style, query, group, animateChild } from '@angular/animations';
 
 export function powerAnimation(){
-  return trigger('powerOn',[
+  return [trigger('powerOn',[
     state('true', style({
       backgroundColor: 'rgba(0,0,0,0)'
     })),
     state('false', style({
       backgroundColor: '*'
     })),
-    transition('true<=>false',[
-      animate('1000ms ease-in')
+    transition('false<=>true',[
+      group([
+        query('@childAnimation', animateChild()),
+        animate('1000ms ease-in')
+      ])
+    ]),
+  ]),
+  trigger('childAnimation', [
+    state('true', style({
+      color: '#0ff',
+      stroke: 'rgb(0,0,0,0.1)',
+      strokeWidth: '10'
+    })),
+    state('false', style({
+      color: '*',
+      stroke: 'rgb(0,0,0,0)',
+      strokeWidth: '10'
+    })),
+    transition( 'false<=>true', [
+      animate('1000ms ease')
     ])
-  ])
+  ])]
 }
 
 export function textAnimation() {
@@ -25,37 +43,3 @@ export function textAnimation() {
     ])
   ])
 }
-export const slideInAnimation =
-  trigger('routeAnimations', [
-    transition('LandingPage<=>AboutPage', [
-      style({position: 'relative'}),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right:0,
-          width: '100%',
-          height: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({ transform: 'translateY(100%)'})
-      ]),
-      query(':leave', animateChild()),
-      group([
-        query(':leave', [
-          animate('1100ms ease-in', keyframes([
-            style({WebkitTransformOrigin: '50% 100%', transformOrigin: '50% 100%', offset:0}),
-            style({WebkitTransformOrigin: '50% 100%', transformOrigin: '50% 100%', WebkitAnimationTimingFunction: 'ease-out', WebkitTransform: 'translateY(-50%) translateZ(-200px) rotateX(45deg)', offset:0.5}),
-            style({WebkitTransformOrigin: '50% 100%', transformOrigin: '50% 100%', opacity: .3, WebkitTransform: 'translateY(-100%) rotateX(90deg)', offset:1})
-          ]))
-        ]),
-        query(':enter', [
-          animate('1100ms ease-in', style({ transform: 'translateY(0%)'}))
-        ])
-      ]),
-      query(':enter', animateChild()),
-    ])
-    ]);
