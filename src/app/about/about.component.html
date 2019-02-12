@@ -1,7 +1,35 @@
 <div id="overlay">
-  <div>
-    <h1>
-      <a routerLink='/'>Back</a>
-    </h1>
+  <div class="contact-button" routerLink="/contact">
+    <div class="contact">
+      <div class="circle">
+        <fa-icon icon="envelope" size="2x"></fa-icon>
+      </div>
+      <span>Contact Me!</span>
+    </div>
   </div>
+  <div class="back-button">
+      <div class='back' routerLink='/'>
+        <span><fa-icon icon="angle-up" size="3x"></fa-icon></span>
+      </div>
+    </div>
+  <mat-drawer-container class="main-body">
+    <mat-drawer mode="side" [opened]="!(isHandset$ | async)" fixedInViewport="true">
+      Drawer content
+      <p (click)="scroll(about)">About Me</p>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="main-content">
+        <div class="section" #intro>
+          Hello
+        </div>
+        <div class="section" #about [ngsReveal]="{
+          reset: true, origin:'left', duration: '2000',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
+          hello 2
+        </div>
+        <div class="section" #about ngsReveal>
+          hello 3
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

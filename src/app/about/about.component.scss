@@ -1,15 +1,131 @@
-#overlay {
-	background-color:grey;
+.section {
+	//background-color: bisque;
+	background-color: rgb(223, 215, 235);
+	height: 100vh;
 	width: 100%;
-	height: 100%;
+	position: relative;
+	color: white;
+	margin: 1em 0;
+	border-radius: 5%;
+	box-shadow: 5px 5px 20px grey;
+}
+.main-body {
+	position: absolute;
+	width:80%;
+	top: 1%;
+	left: 10%;
+	right: 10%;
+}
+
+mat-drawer{
+	background-color: white;
+	position: fixed;
+	width: 20%;
+	top: 10%;
+	bottom: 10%;
+	border-radius: 5%;
+
+}
+.main-content {
+	border-radius:1%;
+	overflow:hidden;
+	box-shadow: 5px 5px 20px grey;
+	width:90%
+}
+#overlay {
+	width: 100%;
+	min-height: 303%;
 	margin:0;
 	padding:0;
 	position: absolute;
+	background-color: rgb(254, 255, 205);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size:cover;
 }
-h1{
-    text-align: center;
-    a{
-    color: black;
+.back-button {
+	z-index: 10;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	top: 1%;
+	.back {
+        width: 2.5em;
+        height: 2.5em;
+        border: 2px solid white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+		justify-content: center;
+        cursor: pointer;
+        fa-icon {
+			color: white;
+        }
     }
+}
+.back-button :hover {
+    transform: scale(1.2);
+    border-color: aqua;
+    fa-icon {
+		color: aqua;
+		transform: scale(1);
+    }
+}
+.back-button :active {
+    transform: scale(1);
+    -webkit-transform: scale(1)
+}
+.contact-button {
+	position: fixed;
+	top: 40%;
+	right: 2%;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	.circle {
+        width: 3em;
+        height: 3em;
+        border: 1.5px solid yellow;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+		justify-content: center;
+		
+        fa-icon {
+			color: yellow;
+		}
+	};
+	span {
+		color: yellow;
+		font-family: Montserrat;
+		margin-top: 0.3em;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
+}
+.contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.contact-button :hover {
+		transform: scale(1.2); 
+	.circle {
+		transform: scale(1);
+	}
+    fa-icon {
+		transform: scale(1);
+	}
+	span {
+		transform: scale(1);
+	}
+}
+.contact-button :active {
+    transform: scale(1);
+    -webkit-transform: scale(1)
 }
 
