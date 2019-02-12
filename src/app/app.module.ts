@@ -3,7 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faPowerOff, faAngleDown, faAngleUp, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faPowerOff, faAngleDown, faAngleUp,
+faEnvelope, faHome, faBookOpen, faCodeBranch, faUser,
+faGraduationCap, faBriefcase} from '@fortawesome/free-solid-svg-icons';
 import { } from '@fortawesome/free-regular-svg-icons';
 import { } from '@fortawesome/free-brands-svg-icons'
 
@@ -37,6 +39,8 @@ import { ContactComponent } from './contact/contact.component';
 })
 export class AppModule { 
   constructor () {
-    library.add(faCoffee, faPowerOff, faAngleDown, faAngleUp, faEnvelope)
+    library.add(faCoffee, faPowerOff, faAngleDown,
+    faAngleUp, faEnvelope, faHome, faBookOpen, faCodeBranch,
+    faUser, faGraduationCap, faBriefcase)
   }
 }

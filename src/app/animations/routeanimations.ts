@@ -23,14 +23,16 @@ export const slideInAnimation =
       query(':leave', animateChild()),
       group([
         query(':leave', [
-          animate('1500ms ease-in', keyframes([
+          animate('1500ms ease-in-out', keyframes([
             style({zIndex:999, transformOrigin: '50% 100%', offset:0}),
+            style({zIndex:999, transformOrigin: '50% 100%', animationTimingFunction:'ease',transform: 'translateY(-25%) translateZ(-100px) rotateX(22.5deg)', offset:0.25}),
             style({zIndex:999, transformOrigin: '50% 100%', animationTimingFunction:'ease',transform: 'translateY(-50%) translateZ(-200px) rotateX(45deg)', offset:0.5}),
+            style({zIndex:999, transformOrigin: '50% 100%', animationTimingFunction:'ease',transform: 'translateY(-75%) translateZ(-100px) rotateX(67.5deg)', offset:0.75}),
             style({zIndex:999, transformOrigin: '50% 100%', opacity: .3, transform: 'translateY(-100%) rotateX(90deg)', offset:1})
           ]))
         ]),
         query(':enter', [
-          animate('1500ms ease-in', keyframes([
+          animate('1500ms ease-in-out', keyframes([
             style({transformOrigin: '50% 0%', opacity:0.5, transform: 'translateY(100%) rotateX(-90deg)', offset:0}),
             style({transformOrigin: '50% 0%', animationTimingFunction:'ease',transform: 'translateY(50%) translateZ(-200px) rotateX(-45deg)', offset:0.5}),
             style({transformOrigin: '50% 0%', transform: 'translateY(0%) translateZ(0) rotateX(0)', opacity:1, offset:1})

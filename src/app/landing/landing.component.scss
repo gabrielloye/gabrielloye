@@ -4,7 +4,7 @@
     position: absolute
 }
 #overlay {
-    background: url(../../assets/images/metal.jpg) no-repeat center center fixed;
+    background: url(../../assets/images/landing.jpg) repeat 0 0;
     position: absolute;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -17,6 +17,16 @@
     right:0;
     bottom:0;
     z-index: -1;
+    -webkit-animation: slide 140s linear infinite;
+    animation: slide 140s linear infinite;
+}
+@keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 0; }
+}
+@-webkit-keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 0; }
 }
 .container {
     background-color:black;
@@ -57,8 +67,8 @@
         text-align: center;
     }
     .next {
-        width: 3.8em;
-        height: 3.8em;
+        width: 3.5em;
+        height: 3.5em;
         border: 2px solid white;
         border-radius: 50%;
         display: flex;
@@ -162,11 +172,19 @@
         -webkit-box-shadow:
             0px -2px #fff, /* top highlight */
             0px 2px 2px #FFFFFF; /* bottom edge */
+        box-shadow:
+        0px -2px #fff, /* top highlight */
+        0px 2px 2px #FFFFFF; /* bottom edge */
     
     -webkit-background-size: 100%, 100%, 100%, 4px 4px;
     
     -webkit-border-radius: 30%;
     -webkit-transition: -webkit-transform .1s ease-in-out;
+
+    background-size: 100%, 100%, 100%, 4px 4px;
+    
+    border-radius: 30%;
+    transition: -webkit-transform .1s ease-in-out;
     
     
     display: inline-block;
@@ -186,6 +204,14 @@
 }
 
 .button:active {
+    box-shadow: 
+        0px 3px rgba(128,128,128,1),
+        0px 4px rgba(118,118,118,1),
+        0px 5px rgba(108,108,108,1),
+        0px 6px rgba(98,98,98,1),
+        0px 7px rgba(88,88,88,1),
+        0px 8px rgba(78,78,78,1),
+        0px 10px 2px 0px rgba(128,128,128,.6);
     -webkit-box-shadow: 
         0px 3px rgba(128,128,128,1),
         0px 4px rgba(118,118,118,1),
@@ -197,6 +223,7 @@
 }
 
 .button:active span{
+    transform: translate(0, 8px);
     -webkit-transform: translate(0, 8px); /* depth of button press */
 }
 

@@ -1,4 +1,4 @@
-<div id="overlay">
+<div id="overlay" #overlay>
   <div class="contact-button" routerLink="/contact">
     <div class="contact">
       <div class="circle">
@@ -8,26 +8,59 @@
     </div>
   </div>
   <div class="back-button">
-      <div class='back' routerLink='/'>
-        <span><fa-icon icon="angle-up" size="3x"></fa-icon></span>
-      </div>
+    <div class='back' routerLink='/'>
+      <span><fa-icon icon="angle-up" size="3x"></fa-icon></span>
     </div>
+  </div>
   <mat-drawer-container class="main-body">
     <mat-drawer mode="side" [opened]="!(isHandset$ | async)" fixedInViewport="true">
-      Drawer content
-      <p (click)="scroll(about)">About Me</p>
+      <div (click)="scroll(intro)">
+        <fa-icon icon="home" size="2x"></fa-icon>
+        <p>Home</p>
+      </div>
+      <div (click)="scroll(about)">
+        <fa-icon icon="user" size="2x"></fa-icon>
+        <p>About</p>
+      </div>
+      <div (click)="scroll(education)">
+        <fa-icon icon="book-open" size="2x"></fa-icon>
+        <fa-icon icon="graduation-cap" size="2x"></fa-icon>
+        <p>Education</p>
+      </div>
+      <div (click)="scroll(skills)">
+        <fa-icon icon="code-branch" size="2x"></fa-icon>
+        <p>Skills</p>
+      </div>
+      <div (click)="scroll(projects)">
+        <fa-icon icon="briefcase" size="2x"></fa-icon>
+        <p>Projects</p>
+      </div>
     </mat-drawer>
     <mat-drawer-content>
-      <div class="main-content">
-        <div class="section" #intro>
+      <div class="main-content" #main>
+        <div class="section intro" #intro>
           Hello
         </div>
-        <div class="section" #about [ngsReveal]="{
-          reset: true, origin:'left', duration: '2000',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
-          hello 2
+        <div class="section about" #about>
+          <div #about [ngsReveal]="{
+            container:'#overlay', reset: true, origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
+            hello 2
+          </div>
         </div>
-        <div class="section" #about ngsReveal>
-          hello 3
+        <div class="section education" #education>
+          <div [ngsReveal]="{container:'#overlay'}">
+            hello 3
+          </div>
+        </div>
+        <div class="section skills" #skills>
+          <div [ngsReveal]="{container:'#overlay'}">
+            hello 4
+          </div>
+        </div>
+        <div class="section projects" #projects>
+          <div [ngsReveal]="{container:'#overlay'}">
+            hello 5
+          </div>
         </div>
       </div>
     </mat-drawer-content>

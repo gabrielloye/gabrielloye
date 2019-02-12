@@ -35,8 +35,8 @@ export function powerAnimation(){
 export function textAnimation() {
   return trigger('introLine', [
     transition(':enter', [
-      style({opacity:0}),
-      animate('1000ms 200ms ease-in', style({opacity:1}))
+      style({opacity:0, transform: 'translateY(8%)'}),
+      animate('1000ms 1000ms cubic-bezier(.38,.38,.95,1.61)', style({opacity:1, transform: 'translateY(0%)'}))
     ]),
     transition(':leave',[
       animate('1000ms', style({opacity:0}))
