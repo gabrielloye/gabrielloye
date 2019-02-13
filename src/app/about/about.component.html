@@ -14,7 +14,7 @@
   </div>
   <div class="mainbody" #mainbody>
     <mat-drawer-container>
-      <mat-drawer mode="side" [opened]="!(isHandset$ | async)" fixedInViewport="true">
+      <mat-drawer mode="side" *ngIf="!(isHandset$ | async)" [opened]="!(isHandset$ | async)" fixedInViewport="true">
         <div class="nav-item nav-highlight" (click)="scroll(intro)" #navlink>
           <fa-icon icon="home" size="2x"></fa-icon>
           <p>Home</p>
@@ -40,27 +40,59 @@
       <mat-drawer-content #main>
         <div class="main-content">
           <div class="section home" #intro #section>
-            Hello
+            <div class="intro-bg"></div>
+            <div class="intro-content">
+              <h1>Welcome</h1>
+            </div>
           </div>
           <div class="section about" #aboutme #section>
-            <div #about [ngsReveal]="{
+            <div [ngsReveal]="{
               container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
-              hello 2
+              Personal/Hobbies
             </div>
           </div>
           <div class="section education" #education #section>
             <div [ngsReveal]="{container:'#overlay'}">
-              hello 3
+              Education
             </div>
           </div>
           <div class="section skills" #skills #section>
             <div [ngsReveal]="{container:'#overlay'}">
-              hello 4
+              Skills
+                Data analytics
+                Web-development
+                  Front-end
+                    HTML/CSS/JS
+                    Angular 2+
+                    Bootstrap
+                  Back-end
+                    Node.js (Express)
+                    Python (Flask)
+                    MongoDB
+              Programming Languages
+                Python
+                  Data Analysis: Numpy, Pandas, Matplotlib
+                  Deep Learning: Pytorch
+                  NLP: spaCy, NLTK
+                  Back-end: Flask
+                JavaScript
+                  Front-end: Angular (+HTML,CSS,Bootstrap)
+                  Back-end: Express
+                Other Tech
+                  Git
+                  MongoDB
+                  Firebase
+                  Heroku
             </div>
           </div>
           <div class="section projects" #projects #section>
             <div [ngsReveal]="{container:'#overlay'}">
-              hello 5
+              Projects
+                Github page
+                Sentiment Analysis with pytorch
+                Football site
+                More to come...
+
             </div>
           </div>
         </div>
