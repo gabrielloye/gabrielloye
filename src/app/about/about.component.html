@@ -12,57 +12,59 @@
       <span><fa-icon icon="angle-up" size="3x"></fa-icon></span>
     </div>
   </div>
-  <mat-drawer-container class="main-body">
-    <mat-drawer mode="side" [opened]="!(isHandset$ | async)" fixedInViewport="true">
-      <div (click)="scroll(intro)">
-        <fa-icon icon="home" size="2x"></fa-icon>
-        <p>Home</p>
-      </div>
-      <div (click)="scroll(about)">
-        <fa-icon icon="user" size="2x"></fa-icon>
-        <p>About</p>
-      </div>
-      <div (click)="scroll(education)">
-        <fa-icon icon="book-open" size="2x"></fa-icon>
-        <fa-icon icon="graduation-cap" size="2x"></fa-icon>
-        <p>Education</p>
-      </div>
-      <div (click)="scroll(skills)">
-        <fa-icon icon="code-branch" size="2x"></fa-icon>
-        <p>Skills</p>
-      </div>
-      <div (click)="scroll(projects)">
-        <fa-icon icon="briefcase" size="2x"></fa-icon>
-        <p>Projects</p>
-      </div>
-    </mat-drawer>
-    <mat-drawer-content>
-      <div class="main-content" #main>
-        <div class="section intro" #intro>
-          Hello
+  <div class="mainbody" #mainbody>
+    <mat-drawer-container>
+      <mat-drawer mode="side" [opened]="!(isHandset$ | async)" fixedInViewport="true">
+        <div class="nav-item nav-highlight" (click)="scroll(intro)" #navlink>
+          <fa-icon icon="home" size="2x"></fa-icon>
+          <p>Home</p>
         </div>
-        <div class="section about" #about>
-          <div #about [ngsReveal]="{
-            container:'#overlay', reset: true, origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
-            hello 2
+        <div class="nav-item" (click)="scroll(aboutme)" #navlink>
+          <fa-icon icon="user" size="2x"></fa-icon>
+          <p>About</p>
+        </div>
+        <div class="nav-item" (click)="scroll(education)" #navlink>
+          <!-- <fa-icon icon="book-open" size="2x"></fa-icon> -->
+          <fa-icon icon="graduation-cap" size="2x"></fa-icon>
+          <p>Education</p>
+        </div>
+        <div class="nav-item" (click)="scroll(skills)" #navlink>
+          <fa-icon icon="code-branch" size="2x"></fa-icon>
+          <p>Skills</p>
+        </div>
+        <div class="nav-item last" (click)="scroll(projects)" #navlink>
+          <fa-icon icon="briefcase" size="2x"></fa-icon>
+          <p>Projects</p>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content #main>
+        <div class="main-content">
+          <div class="section home" #intro #section>
+            Hello
+          </div>
+          <div class="section about" #aboutme #section>
+            <div #about [ngsReveal]="{
+              container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
+              hello 2
+            </div>
+          </div>
+          <div class="section education" #education #section>
+            <div [ngsReveal]="{container:'#overlay'}">
+              hello 3
+            </div>
+          </div>
+          <div class="section skills" #skills #section>
+            <div [ngsReveal]="{container:'#overlay'}">
+              hello 4
+            </div>
+          </div>
+          <div class="section projects" #projects #section>
+            <div [ngsReveal]="{container:'#overlay'}">
+              hello 5
+            </div>
           </div>
         </div>
-        <div class="section education" #education>
-          <div [ngsReveal]="{container:'#overlay'}">
-            hello 3
-          </div>
-        </div>
-        <div class="section skills" #skills>
-          <div [ngsReveal]="{container:'#overlay'}">
-            hello 4
-          </div>
-        </div>
-        <div class="section projects" #projects>
-          <div [ngsReveal]="{container:'#overlay'}">
-            hello 5
-          </div>
-        </div>
-      </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
 </div>

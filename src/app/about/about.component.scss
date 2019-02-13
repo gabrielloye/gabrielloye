@@ -6,8 +6,9 @@
 	font-family: montserrat;
 	padding: 1em;
 }
-.intro {
+.home {
 	background-color:white;
+	height: 82vh;
 }
 .about {
 	background-color: rgb(243, 242, 242);
@@ -21,7 +22,7 @@
 .projects {
 	background-color: white;
 }
-.main-body {
+.mainbody {
 	position: absolute;
 	width:95%;
 	left:2.5%;
@@ -29,17 +30,45 @@
 }
 
 mat-drawer{
-	display:flex;
-	border-radius: 1%;
-	font-family: montserrat;
+	display: table;
+	font-family: poppins;
 	text-align: center;
-	padding: 1em;
+	padding: 0;
 	background-color: white;
 	position: fixed;
-	width: 10%;
+	width: 11%;
 	top: 10%;
-	bottom: 10%;
-	box-shadow: -2px 5px 20px rgb(59, 59, 59);
+	box-shadow: -1px 3px 10px rgb(59, 59, 59);
+	overflow: hidden;
+	.nav-item {
+		cursor:pointer;
+		border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+		padding-top: 0.5em;
+		margin: 0;
+		//box-shadow: 0px 0px 5px rgb(59, 59, 59);
+	}
+	.last{
+		border-bottom: none;
+		padding-bottom: 1px;
+	}
+	p {
+		margin: 0.3em;
+		font-size: 0.85em;
+	}
+}
+mat-drawer :hover {
+	color: rgb(185, 151, 106);
+	border-bottom: 1px solid rgb(185, 151, 106);
+	fa-icon {
+		border-bottom: none;
+	};
+	p {
+		border-bottom: none;
+	}
+}
+.nav-highlight {
+	color: rgb(185, 151, 106);
+	border-bottom: 2px solid rgb(185, 151, 106) !important;
 }
 .main-content {
 	width: 90%;
