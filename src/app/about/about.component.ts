@@ -1,12 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable, fromEvent, interval } from 'rxjs';
-import { map, throttle } from 'rxjs/operators';
+import { Observable, fromEvent } from 'rxjs';
+import { map, auditTime, distinctUntilChanged } from 'rxjs/operators';
+import { textAnimation } from '../animations/aboutanimations'
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  animations: [
+    textAnimation()
+  ]
 })
 export class AboutComponent implements OnInit {
   
@@ -20,6 +24,7 @@ export class AboutComponent implements OnInit {
     );
   onScreen: boolean = false
   currentScroll: number = 0
+  triggerAnimation: boolean = false
   
 
   constructor(private breakpointObserver: BreakpointObserver,
@@ -27,18 +32,18 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     fromEvent(this.overlay.nativeElement, "scroll")
+    .pipe(auditTime(500), distinctUntilChanged())
     .subscribe((event)=>{
       this.currentScroll = this.overlay.nativeElement.scrollTop;
       this.navlink['_results'].forEach(link => {
-        var navclass = link.nativeElement.textContent.toLowerCase(); //link.nativeElement.classList[1];
+        var navclass = link.nativeElement.textContent.toLowerCase();
         this.sections['_results'].forEach(sect => {
           let breakpoint = sect.nativeElement.offsetTop+this.offset.nativeElement.offsetTop;
           let height = sect.nativeElement.offsetHeight;
-          if (this.currentScroll >= breakpoint&&
-            this.currentScroll <= breakpoint + height) {
+          if (this.currentScroll >= breakpoint-1 &&
+            this.currentScroll < breakpoint + height) {
               if (navclass===sect.nativeElement.classList[1]) {
                 link.nativeElement.classList.add('nav-highlight')
-                console.log('changed')
               } else {
                 link.nativeElement.classList.remove('nav-highlight')
               }
@@ -46,11 +51,15 @@ export class AboutComponent implements OnInit {
         })
       })
     });
+    setTimeout(()=>{
+      this.triggerAnimation = true;
+    }, 500)
   }
 
-
   scroll(target) {
-    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if(target){
+      target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
   }
 
 }

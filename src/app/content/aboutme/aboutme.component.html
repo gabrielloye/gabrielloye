@@ -1,0 +1,98 @@
+<div class="background">
+</div>
+<div class="container">
+  <div class="heading" [ngsReveal]="{
+    container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
+    <h1>
+      GABRIEL <span>LOYE</span>
+    </h1> 
+    <h2>
+      <hr><fa-icon icon="star"></fa-icon><hr>
+    </h2>
+  </div>
+  <div class="content-container">
+    <div class="left" [ngsReveal]="{
+      distance: '10em', duration: 1000, delay: 300, easing: 'ease-in',container:'#overlay', reset:'true', origin:'left'}">
+      <div class="image">
+        <img src="url(../../../../../assets/images/color1.jpg" alt="">
+      </div>
+      <div class="sub-info">
+        <p><fa-icon icon="male"></fa-icon> Age: 21</p>
+        <p><fa-icon icon="language"></fa-icon> Languages: English, Chinese</p>
+        <p><fa-icon icon="globe-asia"></fa-icon> Nationality: Singaporean</p>
+      </div>      
+    </div>
+    <div class="right" [ngsReveal]="{
+      duration: 1000, delay: 800,distance: '10em', easing: 'ease-in', container:'#overlay', reset:'true', origin:'right'}">
+      <div class="tab-container">
+        <div class="tabs">
+          <div class="tab-button" [@buttonAnimation]="aboutTab ? 'pressed':'unpressed'" (click)="toggle()">
+            About Me <fa-icon icon="child"></fa-icon>
+          </div>
+          <div class="tab-button" [@buttonAnimation]="!aboutTab ? 'pressed':'unpressed'" (click)="toggle()">
+            Hobbies <fa-icon icon="headphones"></fa-icon>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class="about-content" [@slideAnimations]="aboutTab?'in':'right'">
+            <p>
+              Hi! I'm Gabriel, 21 years old and will be enrolling in NUS studying Business Analytics this year.
+            </p>
+            <p>
+              I enjoy learning new stuff and picking up new skills while have fun along the way.
+              I started self-learning programming in 2018 while serving my National service through online materials, 
+              starting with Python for Data Science and Artificial Intelligence before learning JavaScript and the relevant Web-Development languages.
+            </p>
+            <p>
+              I'm constantly seeking to improve myself through practice, having an open-mind towards learning and gaining exposure to new technologies.
+            </p>
+          </div>
+          <div class="hobbies-content" [@slideAnimations]="!aboutTab?'in':'left'">
+            <div class="hobby">
+              <div class="icon-column">
+                <fa-icon icon="swimmer"></fa-icon>
+              </div>
+              <div class="text-column">
+                I've represented my school in WaterPolo for 6 years and continue to play
+                on a casual level till today.
+              </div>
+            </div>
+            <div class="hobby">
+              <div class="icon-column">
+                <fa-icon icon="futbol"></fa-icon>
+              </div>
+              <div class="text-column">
+                  I enjoy watching and playing football (I support <img src="../../../assets/images/manutd.png">)
+              </div>
+            </div>
+            <div class="hobby">
+              <div class="icon-column">
+                <fa-icon icon="music"></fa-icon>
+              </div>
+              <div class="text-column">
+                I've been playing the Piano since I was 9 and I still practice leisurely
+              </div>
+            </div>
+            <div class="hobby">
+              <div class="icon-column">
+                <fa-icon icon="code"></fa-icon>
+              </div>
+              <div class="text-column">
+                I spend some of my free time practising coding, solving math problems on <a href="https://open.kattis.com/">Kattis</a> or
+                just learning and picking up new knowledge and tricks
+              </div>
+            </div>
+            <div class="hobby">
+              <div class="icon-column">
+                <fa-icon icon="play"></fa-icon>
+              </div>
+              <div class="text-column">
+                Favourite Music Artist: Ed Sheeran, The Script
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

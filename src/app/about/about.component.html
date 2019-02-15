@@ -1,20 +1,60 @@
+<mat-sidenav-container>
+  <mat-sidenav #mobilenav [mode]="over" [ngClass]="{hidden: !(isHandset$ | async)}">
+    <div class="close-button-container">
+      <button mat-button (click)="mobilenav.toggle()">&times;</button>
+    </div>
+    <div class="mobile-links-container">
+      <div class="alignment-container">
+        <div class="nav-item nav-highlight" (click)="mobilenav.toggle(); scroll(intro)" #navlink>
+          <p>Home</p>
+          <fa-icon icon="home" size="2x"></fa-icon>
+        </div>
+        <div class="nav-item" (click)="mobilenav.toggle(); scroll(aboutme)" #navlink>
+          <p>About</p>
+          <fa-icon icon="user" size="2x"></fa-icon>
+        </div>
+        <div class="nav-item" (click)="mobilenav.toggle(); scroll(education)" #navlink>
+          <p>Education</p>
+          <fa-icon icon="graduation-cap" size="2x"></fa-icon>
+        </div>
+        <div class="nav-item" (click)="mobilenav.toggle(); scroll(skills)" #navlink>
+          <p>Skills</p>
+          <fa-icon icon="code-branch" size="2x"></fa-icon>
+        </div>
+        <div class="nav-item" (click)="mobilenav.toggle(); scroll(projects)" #navlink>
+          <p>Projects</p>
+          <fa-icon icon="briefcase" size="2x"></fa-icon>
+        </div>
+        <div class="nav-item" routerLink="/contact">
+          <p>Contact Me</p>
+          <fa-icon icon="envelope" size="2x"></fa-icon>
+        </div>
+      </div>
+    </div> 
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bar-button" *ngIf="(isHandset$ | async)">
+      <button mat-button (click)="mobilenav.toggle()"><fa-icon icon="bars"></fa-icon></button>
+    </mat-toolbar>
+    
 <div id="overlay" #overlay>
-  <div class="contact-button" routerLink="/contact">
+  <div class="contact-button" @flyFromRight *ngIf="!(isHandset$ | async) && triggerAnimation" routerLink="/contact">
     <div class="contact">
       <div class="circle">
-        <fa-icon icon="envelope" size="2x"></fa-icon>
+        <fa-icon icon="envelope" size="3x"></fa-icon>
       </div>
       <span>Contact Me!</span>
     </div>
   </div>
-  <div class="back-button">
+  <div @flyFromTop *ngIf="triggerAnimation" class="back-button">
     <div class='back' routerLink='/'>
       <span><fa-icon icon="angle-up" size="3x"></fa-icon></span>
     </div>
   </div>
+
   <div class="mainbody" #mainbody>
     <mat-drawer-container>
-      <mat-drawer mode="side" *ngIf="!(isHandset$ | async)" [opened]="!(isHandset$ | async)" fixedInViewport="true">
+      <mat-drawer mode="side" @flyFromLeft *ngIf="!(isHandset$ | async) && triggerAnimation" [opened]="!(isHandset$ | async)" fixedInViewport="true">
         <div class="nav-item nav-highlight" (click)="scroll(intro)" #navlink>
           <fa-icon icon="home" size="2x"></fa-icon>
           <p>Home</p>
@@ -38,27 +78,38 @@
         </div>
       </mat-drawer>
       <mat-drawer-content #main>
-        <div class="main-content">
+        <div class="main-content" [ngStyle]="{'width':(isHandset$ | async) === true ? '93%' : '90%'}">
           <div class="section home" #intro #section>
-            <div class="intro-bg"></div>
-            <div class="intro-content">
-              <h1>Welcome</h1>
+            <div class="intro-bg" *ngIf="triggerAnimation" @fadeIn></div>
+            <div class="intro-content" *ngIf="triggerAnimation">
+              <div class="intro-text" @textFadeIn>
+                  <h1>WELCOME</h1>
+                  <p>
+                    I am Gabriel Loye, self-taught Programmer and Developer and this is my Portfolio.
+                    Feel free to explore this page to find out more about me!
+                  </p>
+                  <button class="btn btn1" (click)="scroll(aboutme)">
+                    Explore
+                  </button>
+              </div>
             </div>
           </div>
           <div class="section about" #aboutme #section>
-            <div [ngsReveal]="{
-              container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
-              Personal/Hobbies
+            <div class="down-button" (click)="scroll(education)">
+              <fa-icon icon="angle-down"></fa-icon>
             </div>
+            <app-aboutme></app-aboutme>
           </div>
           <div class="section education" #education #section>
-            <div [ngsReveal]="{container:'#overlay'}">
-              Education
+            <div class="down-button" (click)="scroll(skills)">
+              <fa-icon icon="angle-down"></fa-icon>
             </div>
+            <app-education></app-education>
           </div>
           <div class="section skills" #skills #section>
             <div [ngsReveal]="{container:'#overlay'}">
-              Skills
+              <app-contact></app-contact>
+              <!-- Skills
                 Data analytics
                 Web-development
                   Front-end
@@ -82,17 +133,17 @@
                   Git
                   MongoDB
                   Firebase
-                  Heroku
+                  Heroku -->
             </div>
           </div>
           <div class="section projects" #projects #section>
             <div [ngsReveal]="{container:'#overlay'}">
-              Projects
+              <!-- Projects
                 Github page
                 Sentiment Analysis with pytorch
                 Football site
-                More to come...
-
+                More to come... -->
+                <app-contact></app-contact>
             </div>
           </div>
         </div>
@@ -100,3 +151,5 @@
     </mat-drawer-container>
   </div>
 </div>
+</mat-sidenav-content>
+</mat-sidenav-container>

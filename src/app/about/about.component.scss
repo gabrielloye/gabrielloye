@@ -1,25 +1,166 @@
+$light-brown: rgb(185, 151, 106);
+
+.hidden {
+	display: none;
+}
+mat-sidenav-container {
+	width: 100%;
+	height: 100%;
+	padding:0;
+	margin: 0;
+	.hidden {
+			display:none;
+	}
+	mat-sidenav {
+			background-color: rgba(0, 18, 53, 0.9);
+			width: 100%;
+			.close-button-container {
+				height: 10%;
+				display: flex;
+				justify-content: flex-end;
+				button {
+					padding: 0.3em 0.5em;
+					background-color: transparent;
+					color: white;
+					height: 20%;
+					font-size: 3em;
+				}
+			}
+			.mobile-links-container {
+				height: 90%;
+				display: flex;
+				flex-direction: column;
+				.nav-item{
+					p {
+						font-size: 1.2em;
+					}
+					font-family: montserrat;
+					color: white;
+					margin: 1vh 8vw;
+					padding: 1.5vh 0.8vw;
+					max-width: 100%;
+					border-bottom: 1px solid white;
+					display: flex;
+					justify-content: space-between;
+				}
+				.nav-highlight {
+					color: $light-brown;
+					border-bottom: 1px solid $light-brown;
+				}
+			}
+	};
+	mat-sidenav-content {
+		height: 100vh;
+		width: 100vw;
+		mat-toolbar {
+			position: fixed;
+			z-index: 50;
+			width: 10%;
+			button{ 
+				background: rgba(128, 128, 128, 0.555);
+				margin-top: 2vh;
+				height: 6vh;
+				font-size: 4.3vh;
+			}
+		}
+	}
+}
 .section {
-	//background-color: bisque;
-	//clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 	height: 100vh;
 	position: relative;
 	font-family: montserrat;
+	z-index: 0;
+}
+.down-button {
+	position: absolute;
+	top: 92%;
+	left: 48%;
+	z-index: 13;
+	cursor: pointer;
+	font-size: calc(5vh + 1vw)
 }
 .home {
 	background-color:white;
-	height: 90vh;
+	height: 92vh;
 	padding: 0;
+	position: relative;
 	.intro-bg {
-		clip-path: polygon(70% 0, 100% 0, 100% 100%, 56% 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%);
 		position: absolute;
-		width:100%;
+		left: 50%;
+		width:50%;
 		height:100%;
-		background-color: rgb(185, 151, 106);
+		background: url('../../assets/images/mountain.jpg') center center;
+		background-size: cover;
 		z-index:0
 	}
 	.intro-content {
-		padding: 1em 2em;
+		padding-left: 4em;
+		padding-left: 4vw;
 		position: relative;
+		display: flex;
+		height: 100%;
+		align-items: center;
+		.intro-text {
+			width: 50%;
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			h1{
+				text-align: center;
+				width: max-content;
+				font-weight: bold;
+				font-size: 4em;
+				font-size: calc(2vw + 2vh);
+				border-top: 5px solid rgb(122, 93, 54);
+				border-bottom: 5px solid rgb(122, 93, 54);
+				color: rgb(122, 93, 54);
+			}
+			p {
+				font-size: 2em;
+				font-size: calc(0.8vw + 1.3vh);
+				font-family: poppins;
+				text-align: justify;
+				color: rgb(73, 73, 73);
+			}
+			.btn{
+				border: 2px solid $light-brown;
+				background: none;
+				padding: 0.8vh 1.8vw;
+				font-size: calc(0.8vw + 2vh);
+				font-weight: 550;
+				font-family: "montserrat";
+				cursor: pointer;
+				margin: 1vw;
+				transition: 0.8s;
+				position: relative;
+				overflow: hidden;
+			  }
+			  .btn1{
+				color: $light-brown;
+			  }
+			  .btn1:hover{
+				color: #fff;
+			  }
+			  .btn::before{
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 0%;
+				background-color: $light-brown;
+				z-index: -1;
+				transition: 0.8s;
+			  }
+			  .btn1::before {
+				top: 0;
+				border-radius: 0 0 50% 50%;
+			  }
+			  .btn1:hover::before {
+				height: 180%;
+			  }
+		}
 	}
 }
 .about {
@@ -55,22 +196,27 @@ mat-drawer{
 	.nav-item {
 		cursor:pointer;
 		border-bottom: 1px solid rgba(128, 128, 128, 0.199);
-		padding-top: 0.5em;
+		padding-top: 0.7em;
 		margin: 0;
 		//box-shadow: 0px 0px 5px rgb(59, 59, 59);
 	}
+	.nav-highlight {
+		color: $light-brown;
+		border-bottom: 2px solid $light-brown !important;
+	}
+}
 	.last{
 		border-bottom: none;
 		padding-bottom: 1px;
 	}
 	p {
-		margin: 0.3em;
+		margin: 0.5em;
 		font-size: 0.85em;
 	}
-}
+
 mat-drawer :hover {
-	color: rgb(185, 151, 106);
-	border-bottom: 1px solid rgb(185, 151, 106);
+	color: $light-brown;
+	border-bottom: 1px solid $light-brown;
 	fa-icon {
 		border-bottom: none;
 	};
@@ -78,10 +224,7 @@ mat-drawer :hover {
 		border-bottom: none;
 	}
 }
-.nav-highlight {
-	color: rgb(185, 151, 106);
-	border-bottom: 2px solid rgb(185, 151, 106) !important;
-}
+
 .main-content {
 	width: 90%;
 	margin: 4em 1em;
@@ -141,8 +284,8 @@ mat-drawer :hover {
 	align-items: center;
 	cursor: pointer;
 	.circle {
-        width: 3em;
-        height: 3em;
+        width: 4.2em;
+        height: 4.2em;
         border: 1.5px solid black;
         border-radius: 50%;
         display: flex;

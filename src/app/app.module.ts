@@ -5,11 +5,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee, faPowerOff, faAngleDown, faAngleUp,
 faEnvelope, faHome, faBookOpen, faCodeBranch, faUser,
-faGraduationCap, faBriefcase} from '@fortawesome/free-solid-svg-icons';
+faGraduationCap, faBriefcase, faChild, faStar, faSwimmer,
+faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
+faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool,
+faUniversity } from '@fortawesome/free-solid-svg-icons';
 import { } from '@fortawesome/free-regular-svg-icons';
 import { } from '@fortawesome/free-brands-svg-icons'
 
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 import { NgsRevealModule } from 'ngx-scrollreveal'
 
@@ -18,20 +24,29 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AboutmeComponent } from './content/aboutme/aboutme.component';
+import { EducationComponent } from './content/education/education.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    AboutmeComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     BrowserAnimationsModule,
+
     MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+
+    FontAwesomeModule,
     NgsRevealModule
   ],
   providers: [],
@@ -41,6 +56,9 @@ export class AppModule {
   constructor () {
     library.add(faCoffee, faPowerOff, faAngleDown,
     faAngleUp, faEnvelope, faHome, faBookOpen, faCodeBranch,
-    faUser, faGraduationCap, faBriefcase)
+    faUser, faGraduationCap, faBriefcase, faChild, faStar, faSwimmer,
+    faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
+    faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool, 
+    faUniversity)
   }
 }
