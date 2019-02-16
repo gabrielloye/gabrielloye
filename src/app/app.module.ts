@@ -8,8 +8,8 @@ faEnvelope, faHome, faBookOpen, faCodeBranch, faUser,
 faGraduationCap, faBriefcase, faChild, faStar, faSwimmer,
 faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
 faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool,
-faUniversity } from '@fortawesome/free-solid-svg-icons';
-import { } from '@fortawesome/free-regular-svg-icons';
+faUniversity, faTools, faToolbox } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faKeyboard } from '@fortawesome/free-regular-svg-icons';
 import { } from '@fortawesome/free-brands-svg-icons'
 
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -26,6 +26,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutmeComponent } from './content/aboutme/aboutme.component';
 import { EducationComponent } from './content/education/education.component';
+import { SkillsComponent } from './content/skills/skills.component';
+import { ProjectsComponent } from './content/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { EducationComponent } from './content/education/education.component';
     AboutComponent,
     ContactComponent,
     AboutmeComponent,
-    EducationComponent
+    EducationComponent,
+    SkillsComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,6 @@ export class AppModule {
     faUser, faGraduationCap, faBriefcase, faChild, faStar, faSwimmer,
     faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
     faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool, 
-    faUniversity)
+    faUniversity, faTools, faLightbulb, faToolbox, faKeyboard)
   }
 }

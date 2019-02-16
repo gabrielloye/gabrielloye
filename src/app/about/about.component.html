@@ -104,37 +104,13 @@
             <div class="down-button" (click)="scroll(skills)">
               <fa-icon icon="angle-down"></fa-icon>
             </div>
-            <app-education></app-education>
+            <app-education [isHandset]="(isHandset$ | async)"></app-education>
           </div>
           <div class="section skills" #skills #section>
-            <div [ngsReveal]="{container:'#overlay'}">
-              <app-contact></app-contact>
-              <!-- Skills
-                Data analytics
-                Web-development
-                  Front-end
-                    HTML/CSS/JS
-                    Angular 2+
-                    Bootstrap
-                  Back-end
-                    Node.js (Express)
-                    Python (Flask)
-                    MongoDB
-              Programming Languages
-                Python
-                  Data Analysis: Numpy, Pandas, Matplotlib
-                  Deep Learning: Pytorch
-                  NLP: spaCy, NLTK
-                  Back-end: Flask
-                JavaScript
-                  Front-end: Angular (+HTML,CSS,Bootstrap)
-                  Back-end: Express
-                Other Tech
-                  Git
-                  MongoDB
-                  Firebase
-                  Heroku -->
+            <div class="down-button" (click)="scroll(projects)">
+              <fa-icon icon="angle-down"></fa-icon>
             </div>
+            <app-skills [isHandset]="(isHandset$ | async)"></app-skills>
           </div>
           <div class="section projects" #projects #section>
             <div [ngsReveal]="{container:'#overlay'}">

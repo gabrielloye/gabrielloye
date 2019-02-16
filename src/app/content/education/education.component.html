@@ -1,3 +1,5 @@
+<div class="background">
+</div>
 <div class="container">
   <div class="heading" [ngsReveal]="{
     container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
@@ -9,8 +11,10 @@
     </h2>
   </div>
   <div class="content-container">
-    <div class="timeline">
+    <div class="timeline" [ngsReveal]="{
+      container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
       <div class="icons-column">
+        <div class='tree-background'></div>
         <div class="icon-container">
           <div class="icon-border">
             <fa-icon icon="pencil-alt"></fa-icon>
@@ -33,18 +37,65 @@
         </div>
       </div>
     </div>
-    <div class="schools">
+    <div class="schools" [ngsReveal]="{
+      container:'#overlay', origin:'right',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
       <div class="speech-bubble">
-
+        <div class="logo-info">
+          <img class="logo-img" src="../../../assets/images/nuslogo.png" alt="NUS">
+          <div>
+            National University Of Singapore (NUS)
+            <br *ngIf="isHandset">
+            <span>2019 - 2022</span>
+          </div>
+        </div>
+        <div class="school-text">
+          I will be enrolling in the Business Analytiics course under the School of Computing.
+          The reason I chose this programme is due to my interest in big data and the relevance of data 
+          science in today's world.
+        </div>
       </div>
       <div class="speech-bubble">
-
+        <div class="logo-info">
+          <img class="logo-img" src="../../../assets/images/hclogo.png" alt="NUS">
+          <div>
+            Hwa Chong Institution (JC)
+            <br *ngIf="isHandset">
+            <span>2015 - 2016</span>
+          </div>
+        </div>
+        <div class="school-text">
+          I studied at Hwa Chong Junior College, where I took my GCE A-levels in 2016, achieving a score of 86.75/90 (AAAB).
+          <br *ngIf="isHandset">
+          Subject Combination: Physics, Chemistry, Mathematics and Economics
+        </div>
       </div>
       <div class="speech-bubble">
-
+        <div class="logo-info">
+          <img class="logo-img" src="../../../assets/images/hclogo.png" alt="NUS">
+          <div>
+            Hwa Chong Institution
+            <br *ngIf="isHandset">
+            <span>2011 - 2014</span> 
+          </div>
+        </div>
+        <div class="school-text">
+          My Secondary education was at HCI (High School) where I was part of the Integrated Programme (IP), which
+          granted direct admission to the Junior College if my results met the requirements. This allowed for more opportunities
+          to participate in other enrichment activities.
+        </div>
       </div>
       <div class="speech-bubble">
-
+        <div class="logo-info">
+          <img class="logo-img" src="../../../assets/images/ccklogo.png" alt="NUS">
+          <div>
+            Chua Chu Kang Primary
+            <br>
+            <span>2005 - 2010</span> 
+          </div>
+        </div>
+        <div class="school-text">
+          I studied at Chua Chu Kang Primary School and took my PSLE in 2010.
+        </div>
       </div>
     </div>
   </div>

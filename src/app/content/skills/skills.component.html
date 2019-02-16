@@ -1,0 +1,173 @@
+<div class="background">
+</div>
+<div class="container">
+  <div class="heading" [ngsReveal]="{
+    container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
+    <h1>
+      SKILLS
+    </h1> 
+    <h2>
+      <hr><fa-icon icon="tools"></fa-icon><hr>
+    </h2>
+  </div>
+  <div class="content-container">
+    <div class="attributes">
+      <div class='title'><fa-icon [icon]="['far','lightbulb']"></fa-icon> Personal Attributes</div>
+      <div class="list-container">
+        <ul>
+          <li>Team Player</li>
+          <li>Flexible: Thrives in Dynamism</li>
+          <li>Good Problem Solving Skills</li>
+          <li>Efficient Time Management</li>
+          <li>Effective Communication</li>
+          <li>Hardworking</li> 
+        </ul>
+      </div>
+    </div>
+    <div class="head">
+      <fa-icon icon="toolbox"></fa-icon> My Programming Skillset
+    </div>
+    <div class="coding-container" [ngStyle]="{'flex-direction':isHandset?'column':'row'}">
+      <div [ngClass]="isHandset?'data-card':'d-card'">
+      <div class="data-front">
+        <div class="data-front-content">
+          Data Science
+          <img src="../../../assets/images/python.png" alt="python">
+          <span *ngIf="isHandset">Tap for more info</span>
+          <span *ngIf="!isHandset">Hover for more info on the libraries I use</span>
+        </div>
+      </div>
+      <div class="data-back">
+        <div class="data-analytics">
+          <div class="header">
+            <span>Data Analytics</span> 
+            <div class="circle">
+              <img src="../../../assets/images/python.png" alt="python">
+            </div>
+          </div>
+          <div class="content" [ngStyle]="{'flex-direction':isHandset?'row':'column'}">
+            <div class="scipy col">
+              <span>
+                <div>
+                  Data Management & Visualisation
+                </div>
+              </span>
+              <p>
+                <img id="pandas" src="../../../assets/images/pandas.png" alt="Pandas">
+                <img src="../../../assets/images/numpy.png" alt="numPy">
+                <img src="../../../assets/images/matplotlib.png" alt="matplotlib">
+              </p>
+            </div>
+            <div class="ml-dl col">
+              <span>
+                <div>
+                  Machine Learning & Deep Learning
+                </div>
+              </span>
+              <p>
+                <img src="../../../assets/images/pytorch.png" alt="pytorch">
+              </p>
+            </div>
+            <div class="nlp col">
+              <span>
+                <div>
+                  Natural Language Processing
+                </div>
+              </span>
+              <p>
+                <img src="../../../assets/images/spacy.png" alt="spaCy">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="isHandset?'web-card':'w-card'">
+      <div class="web-front">
+        <div class="web-front-content">
+            <div>
+              Web Development
+              <!-- <img src="../../../assets/images/html.png" alt="html">
+              <img src="../../../assets/images/css.png" alt="css"> -->
+              <span *ngIf="isHandset">Tap for more info</span>
+              <span *ngIf="!isHandset">Hover for more info</span>
+            </div>  
+        </div>
+      </div>
+      <div class="web-back">
+        <div class="web-dev">
+          <div class="header">
+            Web Development
+            <div>
+              <img src="../../../assets/images/html.png" alt="html">
+              <img src="../../../assets/images/css.png" alt="css">
+            </div>  
+          </div>
+          <div class="content" [ngStyle]="{'flex-direction':isHandset?'row':'column'}">
+            <div class="col">
+              <span>
+                Front-end
+              </span>
+              <p>
+                <img src="../../../assets/images/javascript.png" alt="js">
+                <img src="../../../assets/images/angular.png" alt="angular">
+                <img id="bootstrap" src="../../../assets/images/bootstrap.png" alt="bootstrap">
+              </p>
+            </div>
+            <div class="col">
+              <span>
+                Back-end
+              </span>
+              <p>
+                <img src="../../../assets/images/nodejs.png" alt="node">
+                <img src="../../../assets/images/flask.png" alt="flask">
+                <img src="../../../assets/images/mongo.png" alt="mongo">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="other-tech" [ngStyle]="{'flex-direction': isHandset?'column':'row'}">
+      <span>
+        <fa-icon [icon]="['far','keyboard']"></fa-icon> Other Technologies:
+      </span>
+      <div class="img-container">
+        <img src="../../../assets/images/git.png" alt="git">
+        <img src="../../../assets/images/firebase.png" alt="firebase">
+      </div>
+      <div class="img-container">
+        <img src="../../../assets/images/floydhub.png" alt="floydhub">
+        <img src="../../../assets/images/aws.png" alt="aws">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Skills
+Data analytics
+Web-development
+Front-end
+HTML/CSS/JS
+Angular 2+
+Bootstrap
+Back-end
+Node.js (Express)
+Python (Flask)
+MongoDB
+Programming Languages
+Python
+Data Analysis: Numpy, Pandas, Matplotlib
+Deep Learning: Pytorch
+NLP: spaCy, NLTK
+Back-end: Flask
+JavaScript
+Front-end: Angular (+HTML,CSS,Bootstrap)
+Back-end: Express
+Other Tech
+Git
+MongoDB
+Firebase
+Heroku -->
