@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #mobilenav [mode]="over" [ngClass]="{hidden: !(isHandset$ | async)}">
+  <mat-sidenav #mobilenav [ngClass]="{hidden: !(isHandset$ | async)}">
     <div class="close-button-container">
       <button mat-button (click)="mobilenav.toggle()">&times;</button>
     </div>
@@ -113,14 +113,7 @@
             <app-skills [isHandset]="(isHandset$ | async)"></app-skills>
           </div>
           <div class="section projects" #projects #section>
-            <div [ngsReveal]="{container:'#overlay'}">
-              <!-- Projects
-                Github page
-                Sentiment Analysis with pytorch
-                Football site
-                More to come... -->
-                <app-contact></app-contact>
-            </div>
+            <app-projects [isHandset]="(isHandset$ | async)"></app-projects>
           </div>
         </div>
       </mat-drawer-content>

@@ -11,7 +11,8 @@
     </h2>
   </div>
   <div class="content-container">
-    <div class="attributes">
+    <div class="attributes" [ngsReveal]="{
+      container:'#overlay', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
       <div class='title'><fa-icon [icon]="['far','lightbulb']"></fa-icon> Personal Attributes</div>
       <div class="list-container">
         <ul>
@@ -24,58 +25,63 @@
         </ul>
       </div>
     </div>
-    <div class="head">
+    <div class="head" [ngsReveal]="{
+      container:'#overlay', delay:'500', origin:'left',distance: '10em', easing: 'cubic-bezier(1,.08,.55,1.7)'}">
       <fa-icon icon="toolbox"></fa-icon> My Programming Skillset
     </div>
     <div class="coding-container" [ngStyle]="{'flex-direction':isHandset?'column':'row'}">
       <div [ngClass]="isHandset?'data-card':'d-card'">
       <div class="data-front">
         <div class="data-front-content">
-          Data Science
-          <img src="../../../assets/images/python.png" alt="python">
-          <span *ngIf="isHandset">Tap for more info</span>
-          <span *ngIf="!isHandset">Hover for more info on the libraries I use</span>
+          <div class="shape-container">
+            <div class="shape">
+              Data Science
+              <fa-icon icon='flask'></fa-icon>
+            </div>
+          </div>
+          <span *ngIf="isHandset">Tap to see the libraries I use</span>
+          <span *ngIf="!isHandset">Hover over to see the libraries I use</span>
         </div>
       </div>
       <div class="data-back">
-        <div class="data-analytics">
+        <div class="data-analytics" [ngStyle]="{'flex-direction':isHandset?'column':'row'}">
           <div class="header">
-            <span>Data Analytics</span> 
+            <span *ngIf="!isHandset">Data Analytics</span> 
             <div class="circle">
               <img src="../../../assets/images/python.png" alt="python">
             </div>
           </div>
-          <div class="content" [ngStyle]="{'flex-direction':isHandset?'row':'column'}">
+          <div class="content">
             <div class="scipy col">
-              <span>
+              <span [ngStyle]="{'width':isHandset?'40vw':'20vw'}">
                 <div>
                   Data Management & Visualisation
                 </div>
               </span>
               <p>
-                <img id="pandas" src="../../../assets/images/pandas.png" alt="Pandas">
-                <img src="../../../assets/images/numpy.png" alt="numPy">
-                <img src="../../../assets/images/matplotlib.png" alt="matplotlib">
+                <img [ngClass]="!isHandset?'computer-img':''" id="pandas" src="../../../assets/images/pandas.png" alt="Pandas">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/numpy.png" alt="numPy">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/matplotlib.png" alt="matplotlib">
               </p>
             </div>
             <div class="ml-dl col">
-              <span>
+              <span [ngStyle]="{'width':isHandset?'40vw':'20vw'}">
                 <div>
                   Machine Learning & Deep Learning
                 </div>
               </span>
               <p>
-                <img src="../../../assets/images/pytorch.png" alt="pytorch">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/pytorch.png" alt="pytorch">
               </p>
             </div>
             <div class="nlp col">
-              <span>
+              <span [ngStyle]="{'width':isHandset?'40vw':'20vw'}">
                 <div>
                   Natural Language Processing
                 </div>
               </span>
               <p>
-                <img src="../../../assets/images/spacy.png" alt="spaCy">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/spacy.png" alt="spaCy">
               </p>
             </div>
           </div>
@@ -85,43 +91,48 @@
     <div [ngClass]="isHandset?'web-card':'w-card'">
       <div class="web-front">
         <div class="web-front-content">
-            <div>
-              Web Development
-              <!-- <img src="../../../assets/images/html.png" alt="html">
-              <img src="../../../assets/images/css.png" alt="css"> -->
-              <span *ngIf="isHandset">Tap for more info</span>
-              <span *ngIf="!isHandset">Hover for more info</span>
-            </div>  
+          <div class="shape-container">
+            <div class="shape">
+              Web
+              <br>
+              Development
+              <fa-icon [icon]="['far','edit']"></fa-icon>
+            </div>
+          </div>
+          <span *ngIf="isHandset">Tap to see the libraries I use</span>
+          <span *ngIf="!isHandset">Hover over to see the libraries I use</span>    
         </div>
       </div>
       <div class="web-back">
-        <div class="web-dev">
+        <div class="web-dev" [ngStyle]="{'flex-direction':isHandset?'column':'row'}">
           <div class="header">
-            Web Development
-            <div>
-              <img src="../../../assets/images/html.png" alt="html">
-              <img src="../../../assets/images/css.png" alt="css">
-            </div>  
+            <span *ngIf="!isHandset">Web Development</span>
+            <img src="../../../assets/images/web-dev.png" alt="">
           </div>
-          <div class="content" [ngStyle]="{'flex-direction':isHandset?'row':'column'}">
+          <div class="content">
             <div class="col">
               <span>
-                Front-end
+                <div>
+                  Front-end
+                </div>
               </span>
-              <p>
-                <img src="../../../assets/images/javascript.png" alt="js">
-                <img src="../../../assets/images/angular.png" alt="angular">
-                <img id="bootstrap" src="../../../assets/images/bootstrap.png" alt="bootstrap">
+              <p [ngStyle]="{'width':isHandset?'50vw':'90%'}">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/htmlcss.png" alt="html">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/javascript.png" alt="js">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/angular.png" alt="angular">
+                <img [ngClass]="!isHandset?'computer-img':''" id="bootstrap" src="../../../assets/images/bootstrap.png" alt="bootstrap">
               </p>
             </div>
             <div class="col">
               <span>
-                Back-end
+                <div>
+                  Back-end
+                </div>
               </span>
-              <p>
-                <img src="../../../assets/images/nodejs.png" alt="node">
-                <img src="../../../assets/images/flask.png" alt="flask">
-                <img src="../../../assets/images/mongo.png" alt="mongo">
+              <p [ngStyle]="{'width':isHandset?'50vw':'90%'}">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/nodejs.png" alt="node">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/flask.png" alt="flask">
+                <img [ngClass]="!isHandset?'computer-img':''" src="../../../assets/images/mongo.png" alt="mongo">
               </p>
             </div>
           </div>
