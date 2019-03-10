@@ -8,7 +8,8 @@ faEnvelope, faHome, faBookOpen, faCodeBranch, faUser,
 faGraduationCap, faBriefcase, faChild, faStar, faSwimmer,
 faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
 faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool,
-faUniversity, faTools, faToolbox, faFlask, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+faUniversity, faTools, faToolbox, faFlask, faProjectDiagram,
+faDesktop, faBrain } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb, faKeyboard, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { } from '@fortawesome/free-brands-svg-icons'
 
@@ -64,6 +65,6 @@ export class AppModule {
     faHeadphones, faFutbol, faMusic, faCode, faLanguage, faMale,
     faGlobeAsia, faPlay, faBars, faPencilAlt, faPenAlt, faSchool, 
     faUniversity, faTools, faLightbulb, faToolbox, faKeyboard, faFlask,
-    faEdit, faProjectDiagram)
+    faEdit, faProjectDiagram, faDesktop, faBrain)
   }
 }
